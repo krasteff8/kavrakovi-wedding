@@ -565,20 +565,29 @@
     }
 
     .ch { opacity: 1; }
-    .js-write .ch { opacity: 0; }
-    .js-write .ch.revealed { opacity: 1; }
+    .js-write .ch {
+      opacity: 0;
+      transition: opacity 220ms ease-out;
+    }
+    .js-write .ch.revealed {
+      opacity: 1;
+    }
 
     .js-write .ch.cursor::after {
       content: "";
       display: inline-block;
-      width: 2px;
-      height: 1.05em;
-      margin: 0 -1px -0.17em 1px;
+      width: 1px;
+      height: .92em;
+      margin: 0 0 -0.12em 2px;
+      border-radius: 999px;
       background: var(--gold);
-      animation: blink 530ms steps(1, end) infinite;
+      opacity: .72;
+      animation: pen-pulse 760ms ease-in-out infinite;
     }
 
-    @keyframes blink { 50% { opacity: 0; } }
+    @keyframes pen-pulse {
+      50% { opacity: .22; transform: scaleY(.88); }
+    }
 
     .scroll-note {
       margin: 28px 0 0;
@@ -1045,7 +1054,7 @@
         </svg>
         </section>
 
-        <section id="s5-3" data-block="S5.3" data-write data-mode="words" class="clause">
+        <section id="s5-3" data-block="S5.3" data-write class="clause">
         <h3>3. Национална стратегия за семейно благополучие</h3>
         <p>В случай на инцидент, непредвидена ситуация или друго обстоятелство, водещо до излишно напрежение в домакинството, Николай се задължава да предприеме всички необходими действия за отстраняване на последствията.</p>
         <p>Това включва, но не се ограничава до:</p>
@@ -1073,7 +1082,7 @@
         <p>Настоящата разпоредба е доживотна, не подлежи на отказ и се счита за особено важна за стабилността на семейство Кавръкови.</p>
         </section>
 
-        <section id="s5-4" data-block="S5.4" data-write data-mode="words" class="clause">
+        <section id="s5-4" data-block="S5.4" data-write class="clause">
         <h3>4. Национална стратегия за планиране</h3>
         <p>Невена официално се назначава за:</p>
         <p class="minister">Министър на плановете и списъците.</p>
@@ -1172,9 +1181,7 @@
 
         nodes.forEach(node => {
           const fragment = document.createDocumentFragment();
-          const parts = block.dataset.mode === 'words'
-            ? node.nodeValue.match(/\S+\s*|\s+/g) || []
-            : [...node.nodeValue];
+          const parts = node.nodeValue.match(/\S+\s*|\s+/g) || [];
 
           parts.forEach(part => {
             const span = document.createElement('span');
@@ -1216,39 +1223,96 @@
         }
       };
 
-      const lastBlock = blocks[blocks.length - 1];
-
-      const updateBlock = block => {
+      const measureBlock = block => {
         const item = state.get(block);
-        const rect = block.getBoundingClientRect();
+        const entries = item.units.map((unit, index) => {
+          const rect = unit.getBoundingClientRect();
+          return { index, top: rect.top + window.scrollY };
+        });
+        const lines = [];
 
-        if (rect.bottom < 0) {
-          reveal(block, item.units.length);
-          return true;
-        }
+        entries.forEach(entry => {
+          const line = lines[lines.length - 1];
+          if (!line || Math.abs(line.top - entry.top) > 1.5) {
+            lines.push({ top: entry.top, entries: [entry] });
+          } else {
+            line.entries.push(entry);
+          }
+        });
 
-        const anchorY = window.innerHeight * .72;
-        const extra = Number(block.dataset.revealExtra || 120);
-        const distance = block === lastBlock
-          ? Math.max(80, rect.height * .3)
-          : rect.height + extra;
-        const progress = Math.max(0, Math.min(1, (anchorY - rect.top) / distance));
-        reveal(block, Math.ceil(progress * item.units.length));
-        return item.revealed === item.units.length;
+        const lineHeight = Number.parseFloat(getComputedStyle(block).lineHeight) || 20;
+        const thresholds = new Array(item.units.length);
+
+        lines.forEach(line => {
+          const spread = Math.max(14, lineHeight * .8);
+          const denominator = Math.max(1, line.entries.length - 1);
+          line.entries.forEach((entry, position) => {
+            thresholds[entry.index] = line.top + (position / denominator) * spread;
+          });
+        });
+
+        item.thresholds = thresholds;
       };
 
+      const measureAll = () => blocks.forEach(measureBlock);
+
       let ticking = false;
+      let initialPaint = true;
+      let lastScrollY = window.scrollY;
+      let scrollCredit = 0;
+      let lastWordRevealAt = 0;
+      const pixelsPerWord = 34;
+      const minimumWordInterval = 110;
+
       const update = () => {
         const scrollable = document.documentElement.scrollHeight - window.innerHeight;
         const pageProgress = scrollable > 0 ? window.scrollY / scrollable : 1;
         progressBar.style.width = `${Math.min(1, Math.max(0, pageProgress)) * 100}%`;
 
+        const forwardDistance = Math.max(0, window.scrollY - lastScrollY);
+        if (!initialPaint) scrollCredit += Math.min(forwardDistance, 80);
+        lastScrollY = window.scrollY;
+
+        const revealPosition = window.scrollY + window.innerHeight * .76;
+        const now = window.performance.now();
+        let wordBudget = initialPaint
+          ? Number.POSITIVE_INFINITY
+          : forwardDistance > 0 && scrollCredit >= pixelsPerWord && now - lastWordRevealAt >= minimumWordInterval
+            ? 1
+            : 0;
+
         for (const block of blocks) {
           const item = state.get(block);
           if (item.revealed === item.units.length) continue;
-          const complete = updateBlock(block);
-          if (!complete) break;
+
+          const rect = block.getBoundingClientRect();
+          if (rect.bottom < 0) {
+            reveal(block, item.units.length);
+            continue;
+          }
+
+          const catchUpPosition = window.scrollY + window.innerHeight * .34;
+          let catchUp = item.revealed;
+          while (catchUp < item.units.length && item.thresholds[catchUp] <= catchUpPosition) catchUp++;
+          reveal(block, catchUp);
+          if (item.revealed === item.units.length) continue;
+
+          let next = item.revealed;
+          while (next < item.units.length && item.thresholds[next] <= revealPosition) next++;
+
+          if (initialPaint) {
+            reveal(block, next);
+          } else if (next > item.revealed && wordBudget > 0) {
+            reveal(block, item.revealed + 1);
+            scrollCredit = Math.max(0, scrollCredit - pixelsPerWord);
+            lastWordRevealAt = now;
+            wordBudget = 0;
+          }
+
+          if (item.revealed === item.units.length) continue;
+          break;
         }
+        initialPaint = false;
         ticking = false;
       };
 
@@ -1260,7 +1324,10 @@
       };
 
       window.addEventListener('scroll', requestUpdate, { passive: true });
-      window.addEventListener('resize', requestUpdate, { passive: true });
+      window.addEventListener('resize', () => {
+        measureAll();
+        requestUpdate();
+      }, { passive: true });
 
       motion.addEventListener('change', event => {
         if (!event.matches) return;
@@ -1268,7 +1335,12 @@
         root.classList.remove('js-write');
       });
 
+      measureAll();
       update();
+      document.fonts?.ready.then(() => {
+        measureAll();
+        requestUpdate();
+      });
       requestAnimationFrame(() => root.classList.remove('write-prep'));
     })();
   </script>
