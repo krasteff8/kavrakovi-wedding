@@ -606,9 +606,7 @@
       background: var(--paper);
       box-shadow:
         0 28px 76px rgba(49, 36, 17, .24),
-        0 3px 8px rgba(49, 36, 17, .12),
-        inset 0 0 0 3px var(--paper),
-        inset 0 0 0 4px rgba(138, 109, 44, .62);
+        0 3px 8px rgba(49, 36, 17, .12);
     }
 
     .document-shell::before,
@@ -640,10 +638,7 @@
       padding: 66px 50px 72px;
       border: 1px solid rgba(138, 109, 44, .72);
       background: var(--paper);
-      box-shadow:
-        inset 0 0 45px rgba(107, 79, 35, .055),
-        inset 0 0 0 5px rgba(255, 252, 244, .48),
-        inset 0 0 0 6px rgba(216, 190, 126, .38);
+      box-shadow: inset 0 0 45px rgba(107, 79, 35, .055);
     }
 
     .document > section,
@@ -891,9 +886,9 @@
 
     .js-write .seal.stamped { opacity: .68; }
 
-    @media (max-width: 430px) {
+    @media (max-width: 640px) {
       .document-shell { margin: 0; width: 100%; padding: 5px; border-inline: 0; }
-      .document { padding: 46px 14px 52px; }
+      .document { padding: 46px 10px 52px; }
       .section-space { margin-top: 60px; }
       .divider { margin-block: 58px; }
       .register { font-size: 11.5px; }
@@ -905,8 +900,8 @@
       #s3 { padding-inline: 2px; text-align: left; text-align-last: auto; }
       .article-title > span { padding-inline: 12px; }
       .article-group { padding-left: 0; }
-      .clause { padding-inline: 16px 3px; }
-      .clause h3 { margin-left: -16px; padding-left: 15px; }
+      .clause { padding-inline: 12px 2px; }
+      .clause h3 { margin-left: -12px; padding-left: 11px; }
       .clause p,
       .clause li { text-align: left; hyphens: none; overflow-wrap: break-word; }
       .dash-list { padding-left: 15px; }
