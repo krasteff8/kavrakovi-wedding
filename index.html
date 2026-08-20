@@ -31,6 +31,7 @@
       --gold-light: #D8BE7E;
       --citrine: #EFE0A6;
       --seal: #6B3A33;
+      --panel-background: rgba(237, 226, 204, .38);
 
       --font-display: "Prata", Georgia, "Times New Roman", serif;
       --font-script: "Great Vibes", cursive;
@@ -324,8 +325,10 @@
     }
 
     .dash-list li::before {
-      content: "— ";
+      content: "-";
       margin-left: -18px;
+      margin-right: 8px;
+      color: var(--gold);
     }
 
     .js-write .dash-list li::before {
@@ -350,17 +353,6 @@
       margin: 24px 0 26px;
       text-align: center;
       font-style: italic;
-    }
-
-    .number-list { padding-left: 30px; }
-    .number-list li { padding-left: 5px; }
-
-    .js-write .number-list li::marker {
-      color: transparent;
-    }
-
-    .js-write .number-list li:has(.ch.revealed)::marker {
-      color: currentColor;
     }
 
     .probably {
@@ -390,6 +382,16 @@
 
     .mutual-obligations p { margin: 0 0 19px; }
 
+    .clause p,
+    .clause li,
+    .mutual-obligations p,
+    .mutual-obligations li,
+    .fineprint p {
+      font-family: var(--font-body);
+    }
+
+    .gestures-lead { margin-top: 24px; }
+
     .mutual-list,
     .gestures-list {
       list-style: none;
@@ -401,56 +403,28 @@
     .gestures-list li {
       position: relative;
       margin: 0;
-      padding: 14px 10px 14px 27px;
-      border-bottom: 1px solid rgba(216, 190, 126, .52);
+      padding: 8px 10px 8px 18px;
     }
 
-    .mutual-list li::before {
-      content: "◆";
+    .mutual-list li::before,
+    .gestures-list li::before {
+      content: "-";
       position: absolute;
-      top: 22.5px;
-      left: 5px;
+      top: 8px;
+      left: 1px;
       color: var(--gold);
-      font-size: 7px;
-      line-height: 1;
-      transform: translateY(-50%);
+      font-size: inherit;
+      line-height: inherit;
     }
 
     .gestures-list {
-      margin: 2px 0 26px 20px;
+      margin: 2px 0 26px;
       font-style: italic;
-    }
-
-    .gestures-list li {
-      padding-block: 8px;
-      border-bottom-style: dotted;
-    }
-
-    .gestures-list li::before {
-      content: "—";
-      position: absolute;
-      top: 16.5px;
-      left: 4px;
-      color: var(--gold);
-      line-height: 1;
-      transform: translateY(-50%);
-    }
-
-    .js-write .mutual-list li[data-write],
-    .js-write .gestures-list li[data-write] {
-      border-bottom-color: transparent;
     }
 
     .js-write .mutual-list li[data-write]::before,
     .js-write .gestures-list li[data-write]::before {
       opacity: 0;
-    }
-
-    .js-write .mutual-list li.writing,
-    .js-write .mutual-list li.written,
-    .js-write .gestures-list li.writing,
-    .js-write .gestures-list li.written {
-      border-bottom-color: rgba(216, 190, 126, .52);
     }
 
     .js-write .mutual-list li.writing::before,
@@ -464,7 +438,7 @@
       max-width: 470px;
       padding: 30px 24px 24px;
       border: 1px solid rgba(138, 109, 44, .28);
-      background: rgba(237, 226, 204, .38);
+      background: var(--panel-background);
       color: var(--ink-soft);
       font-size: 9.5px;
       line-height: 1.8;
@@ -870,7 +844,7 @@
     .mutual-obligations {
       padding: 34px 30px 30px;
       border: 1px solid rgba(138, 109, 44, .34);
-      background: rgba(255, 252, 244, .28);
+      background: var(--panel-background);
       box-shadow: inset 0 0 0 4px var(--paper), inset 0 0 0 5px rgba(216, 190, 126, .2);
     }
 
@@ -882,7 +856,7 @@
       padding: 35px 29px 27px;
       border: 1px dashed rgba(107, 58, 51, .42);
       background:
-        linear-gradient(rgba(237, 226, 204, .58), rgba(237, 226, 204, .38)),
+        linear-gradient(var(--panel-background), var(--panel-background)),
         repeating-linear-gradient(0deg, transparent 0 27px, rgba(138, 109, 44, .045) 27px 28px);
       box-shadow: 0 0 0 5px var(--paper), 0 0 0 6px rgba(138, 109, 44, .2);
     }
@@ -936,7 +910,6 @@
       .clause p,
       .clause li { text-align: left; hyphens: none; overflow-wrap: break-word; }
       .dash-list { padding-left: 15px; }
-      .number-list { padding-left: 24px; }
       .mutual-obligations { padding: 27px 12px 23px; }
       .mutual-list li,
       .gestures-list li { padding-right: 3px; }
@@ -1110,12 +1083,12 @@
         <p>Невена официално се назначава за:</p>
         <p class="minister">Министър на плановете и списъците.</p>
         <p>При възникване на ситуация, която не протича според плана, Николай се задължава да осигури:</p>
-        <ol class="number-list">
+        <ul class="dash-list">
           <li>спокойствие;</li>
           <li>търпение;</li>
           <li>емоционална подкрепа;</li>
           <li>при необходимост — храна.</li>
-        </ol>
+        </ul>
         <p>Невена от своя страна се уведомява, че невъзможността да контролира абсолютно всичко е технически преживяемо състояние.</p>
         <p class="probably">Вероятно.</p>
         </section>
@@ -1131,8 +1104,8 @@
           <li data-write>Да бъдат един за друг не само любими хора, но и най-добри приятели.</li>
           <li data-write>Да бъдат опора, когато другият има нужда от нея.</li>
           <li data-write>Да се подкрепят, да се пазят и да бъдат най-големият си фен.</li>
-          <li data-write>И никога да не забравят малките неща:</li>
         </ul>
+        <p class="gestures-lead" data-write>И никога да не забравят малките неща:</p>
         <ul class="gestures-list">
           <li data-write>една спонтанна целувка,</li>
           <li data-write>ръка, хваната под масата,</li>
