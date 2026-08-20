@@ -3,22 +3,39 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#F6EFE1">
+  <meta name="theme-color" content="#d9cdb8">
   <meta name="description" content="Едно специално удостоверение за Невена и Николай Кавръкови.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="bg_BG">
+  <meta property="og:title" content="Удостоверение за семейство Кавръкови">
+  <meta property="og:description" content="Едно специално удостоверение за Невена и Николай Кавръкови.">
+  <meta property="og:url" content="https://krasteff8.github.io/kavrakovi-wedding/">
   <title>Удостоверение за семейство Кавръкови</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23F6EFE1'/%3E%3Cpath d='M32 49S13 38 13 24c0-10 13-15 19-5 6-10 19-5 19 5 0 14-19 25-19 25z' fill='none' stroke='%238A6D2C' stroke-width='3'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Cormorant+Garamond:wght@600&family=PT+Serif:ital,wght@0,400;0,700;1,400&family=PT+Mono&display=swap&subset=cyrillic" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Prata&family=Manrope:wght@400;500;700&family=PT+Mono&display=swap" rel="stylesheet">
+  <script>
+    if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.documentElement.classList.add('write-prep');
+      setTimeout(() => document.documentElement.classList.remove('write-prep'), 1600);
+    }
+  </script>
   <style>
     :root {
       --paper: #F6EFE1;
       --paper-deep: #EDE2CC;
       --ink: #22201C;
       --ink-soft: #5B564C;
-      --gold: #A9873F;
+      --gold: #856828;
       --gold-light: #D8BE7E;
       --citrine: #EFE0A6;
       --seal: #6B3A33;
+
+      --font-display: "Prata", Georgia, "Times New Roman", serif;
+      --font-script: "Great Vibes", cursive;
+      --font-body: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+      --font-mono: "PT Mono", ui-monospace, monospace;
     }
 
     * { box-sizing: border-box; }
@@ -28,13 +45,15 @@
       scroll-behavior: smooth;
     }
 
+    html.write-prep body { visibility: hidden; }
+
     body {
       margin: 0;
       color: var(--ink);
       background:
         radial-gradient(ellipse at center, transparent 52%, rgba(77, 61, 36, .11) 100%),
         var(--paper);
-      font-family: "PT Serif", Georgia, "Times New Roman", serif;
+      font-family: var(--font-body);
       font-size: 16.5px;
       line-height: 1.75;
       text-rendering: optimizeLegibility;
@@ -66,6 +85,18 @@
       overflow: hidden;
     }
 
+    .reading-progress {
+      position: fixed;
+      z-index: 20;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background: var(--gold);
+      box-shadow: 0 1px 7px rgba(138, 109, 44, .4);
+      pointer-events: none;
+    }
+
     section {
       position: relative;
       max-width: 560px;
@@ -76,7 +107,7 @@
 
     .masthead {
       text-align: center;
-      font-family: "PT Mono", ui-monospace, monospace;
+      font-family: var(--font-mono);
       color: var(--ink-soft);
       letter-spacing: .08em;
       line-height: 1.55;
@@ -115,10 +146,10 @@
     .title,
     .article-title,
     .declaration {
-      font-family: "Playfair Display", Georgia, "Times New Roman", serif;
-      font-weight: 700;
+      font-family: var(--font-display);
+      font-weight: 400;
       text-transform: uppercase;
-      letter-spacing: .16em;
+      letter-spacing: .14em;
     }
 
     .title {
@@ -140,36 +171,29 @@
     }
 
     .name {
-      position: relative;
-      z-index: 0;
-      width: fit-content;
       max-width: 100%;
       margin: 0 auto;
-      padding-inline: .14em;
-      font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
-      font-size: clamp(30px, 9vw, 42px);
-      font-weight: 600;
-      line-height: 1.18;
-      letter-spacing: .09em;
+      font-family: var(--font-script);
+      font-size: clamp(34px, 8.5vw, 52px);
+      font-weight: 400;
+      line-height: 1.34;
+      letter-spacing: 0;
       text-align: center;
-      text-transform: uppercase;
-      color: var(--gold);
-      background: linear-gradient(#C9A557, #8F6F2E);
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      text-transform: none;
+      white-space: nowrap;
     }
 
-    .name::after {
-      content: "";
-      position: absolute;
-      z-index: -1;
-      right: 0;
-      bottom: .08em;
-      left: 0;
-      height: .24em;
-      background: var(--citrine);
-      opacity: .72;
+    .name-text {
+      padding-inline: .1em;
+      color: var(--gold);
+      background-image: linear-gradient(
+        to top,
+        transparent .04em,
+        var(--citrine) .04em,
+        var(--citrine) .2em,
+        transparent .2em);
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
     }
 
     .connector {
@@ -218,8 +242,8 @@
       width: 100%;
       border-collapse: collapse;
       border: 1px solid var(--gold-light);
-      background: rgba(237, 226, 204, .67);
-      font-family: "PT Mono", ui-monospace, monospace;
+      background: var(--paper-deep);
+      font-family: var(--font-mono);
       font-size: 13px;
       line-height: 1.45;
     }
@@ -244,18 +268,41 @@
     .register td { font-weight: 700; }
 
     .article-title {
+      display: flex;
+      align-items: center;
+      gap: 14px;
       margin: 0 0 48px;
       font-size: clamp(17px, 4.6vw, 21px);
       line-height: 1.5;
       text-align: center;
     }
 
+    .article-title::before,
+    .article-title::after {
+      content: "";
+      flex: 1;
+      min-width: 18px;
+      border-top: 1px solid var(--gold-light);
+    }
+
+    .article-title > span {
+      min-width: 0;
+      white-space: normal;
+    }
+
     .clause + .clause { margin-top: 70px; }
 
+    .clause {
+      padding: 24px 18px 10px;
+      border-top: 1px solid rgba(138, 109, 44, .32);
+      border-left: 2px solid rgba(138, 109, 44, .2);
+    }
+
     .clause h3,
-    .fineprint h3 {
+    .fineprint h2 {
       margin: 0 0 26px;
-      font-family: "PT Serif", Georgia, "Times New Roman", serif;
+      font-family: var(--font-body);
+      font-weight: 700;
       font-size: 14px;
       line-height: 1.55;
       letter-spacing: .12em;
@@ -281,6 +328,14 @@
       margin-left: -18px;
     }
 
+    .js-write .dash-list li::before {
+      opacity: 0;
+    }
+
+    .js-write .dash-list li:has(.ch.revealed)::before {
+      opacity: 1;
+    }
+
     .declaration {
       margin: 34px 0;
       color: var(--gold);
@@ -300,8 +355,16 @@
     .number-list { padding-left: 30px; }
     .number-list li { padding-left: 5px; }
 
+    .js-write .number-list li::marker {
+      color: transparent;
+    }
+
+    .js-write .number-list li:has(.ch.revealed)::marker {
+      color: currentColor;
+    }
+
     .probably {
-      margin: 66px 0 !important;
+      margin: 66px 0;
       text-align: center;
       font-style: italic;
     }
@@ -309,35 +372,99 @@
     .mutual-obligations {
       max-width: 510px;
       color: var(--ink-soft);
-      font-size: 14.5px;
-      line-height: 1.82;
+      font-size: 13px;
+      line-height: 1.75;
     }
 
     .mutual-obligations .article-title {
       margin-bottom: 36px;
       color: var(--ink);
-      font-size: 14.5px;
+      font-size: 12.25px;
       letter-spacing: .13em;
     }
 
     .mutual-obligations p { margin: 0 0 19px; }
 
-    .small-gestures {
-      margin: 28px auto !important;
-      padding-left: 14px;
-      line-height: 2.05;
+    .mutual-list,
+    .gestures-list {
+      list-style: none;
+      margin: 22px 0;
+      padding: 0;
+    }
+
+    .mutual-list li,
+    .gestures-list li {
+      position: relative;
+      margin: 0;
+      padding: 14px 10px 14px 27px;
+      border-bottom: 1px solid rgba(216, 190, 126, .52);
+    }
+
+    .mutual-list li::before {
+      content: "◆";
+      position: absolute;
+      top: 24px;
+      left: 5px;
+      color: var(--gold);
+      font-size: 7px;
+      line-height: 1;
+      transform: translateY(-50%);
+    }
+
+    .gestures-list {
+      margin: 2px 0 26px 20px;
+      font-style: italic;
+    }
+
+    .gestures-list li {
+      padding-block: 8px;
+      border-bottom-style: dotted;
+    }
+
+    .gestures-list li::before {
+      content: "—";
+      position: absolute;
+      left: 4px;
+      color: var(--gold);
+    }
+
+    .js-write .mutual-list li[data-write],
+    .js-write .gestures-list li[data-write] {
+      border-bottom-color: transparent;
+    }
+
+    .js-write .mutual-list li[data-write]::before,
+    .js-write .gestures-list li[data-write]::before {
+      opacity: 0;
+    }
+
+    .js-write .mutual-list li.writing,
+    .js-write .mutual-list li.written,
+    .js-write .gestures-list li.writing,
+    .js-write .gestures-list li.written {
+      border-bottom-color: rgba(216, 190, 126, .52);
+    }
+
+    .js-write .mutual-list li.writing::before,
+    .js-write .mutual-list li.written::before,
+    .js-write .gestures-list li.writing::before,
+    .js-write .gestures-list li.written::before {
+      opacity: 1;
     }
 
     .fineprint {
       max-width: 470px;
+      padding: 30px 24px 24px;
+      border: 1px solid rgba(138, 109, 44, .28);
+      background: rgba(237, 226, 204, .38);
       color: var(--ink-soft);
-      font-size: 11.5px;
-      line-height: 1.7;
+      font-size: 13px;
+      line-height: 1.75;
     }
 
-    .fineprint h3 {
+    .fineprint h2 {
       color: var(--ink);
-      font-size: 14px;
+      font-size: 12.25px;
       text-align: center;
     }
 
@@ -352,27 +479,13 @@
 
     .signatures {
       padding-top: 4px;
-      font-family: "PT Mono", ui-monospace, monospace;
+      font-family: var(--font-mono);
       font-size: 11px;
       line-height: 1.65;
       text-align: center;
     }
 
     .issued-date { margin-bottom: 44px; }
-
-    .couple-signatures {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 30px;
-      margin: 0 0 62px;
-    }
-
-    .signature-line {
-      display: block;
-      height: 1px;
-      margin-bottom: 10px;
-      background: var(--gold-light);
-    }
 
     .issuer {
       position: relative;
@@ -381,7 +494,7 @@
       padding: 24px 16px 20px;
       border-top: 1px solid var(--gold-light);
       border-bottom: 1px solid var(--gold-light);
-      font-family: "PT Serif", Georgia, "Times New Roman", serif;
+      font-family: var(--font-body);
       font-size: 13px;
       line-height: 1.8;
     }
@@ -390,10 +503,10 @@
       display: block;
       margin-top: 8px;
       color: var(--gold);
-      font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
-      font-size: 24px;
-      font-weight: 600;
-      letter-spacing: .06em;
+      font-family: var(--font-script);
+      font-size: 30px;
+      font-weight: 400;
+      letter-spacing: 0;
     }
 
     .archive {
@@ -423,7 +536,7 @@
     }
 
     .seal-approved {
-      right: -14px;
+      right: 4px;
       bottom: -42px;
       transform: rotate(-7deg);
     }
@@ -432,7 +545,7 @@
     .js-write .seal-approved.stamped { transform: rotate(-7deg) scale(1); }
 
     .seal-return {
-      right: -16px;
+      right: 2px;
       bottom: 56px;
       transform: rotate(5deg);
     }
@@ -441,7 +554,7 @@
     .js-write .seal-return.stamped { transform: rotate(5deg) scale(1); }
 
     .seal-permanent {
-      right: -12px;
+      right: 4px;
       bottom: -28px;
       transform: rotate(-3deg);
     }
@@ -458,7 +571,7 @@
 
     .seal text {
       fill: currentColor;
-      font-family: "PT Mono", ui-monospace, monospace;
+      font-family: var(--font-mono);
       font-size: 9px;
       letter-spacing: .085em;
     }
@@ -482,23 +595,337 @@
     .scroll-note {
       margin: 28px 0 0;
       color: var(--ink-soft);
-      font-family: "PT Mono", ui-monospace, monospace;
-      font-size: 9px;
+      font-family: var(--font-mono);
+      font-size: 10.5px;
       letter-spacing: .09em;
       text-align: center;
       text-transform: uppercase;
     }
 
+    /* Authentic document treatment — typography intentionally unchanged. */
+    body {
+      background:
+        radial-gradient(ellipse at 50% 8%, rgba(255, 252, 243, .72), transparent 34%),
+        linear-gradient(90deg, rgba(65, 52, 32, .07), transparent 18%, transparent 82%, rgba(65, 52, 32, .07)),
+        #d9cdb8;
+    }
+
+    .document-shell {
+      width: min(calc(100% - 34px), 700px);
+      margin: 32px auto;
+      padding: 9px;
+      border: 1px solid #9a7833;
+      background: rgba(246, 239, 225, .92);
+      box-shadow:
+        0 28px 76px rgba(49, 36, 17, .24),
+        0 3px 8px rgba(49, 36, 17, .12),
+        inset 0 0 0 3px var(--paper),
+        inset 0 0 0 4px rgba(138, 109, 44, .62);
+    }
+
+    .document-shell::before,
+    .document-shell::after {
+      content: "";
+      position: absolute;
+      z-index: 4;
+      width: 28px;
+      height: 28px;
+      pointer-events: none;
+    }
+
+    .document-shell::before {
+      top: 14px;
+      left: 14px;
+      border-top: 2px solid var(--gold);
+      border-left: 2px solid var(--gold);
+    }
+
+    .document-shell::after {
+      right: 14px;
+      bottom: 14px;
+      border-right: 2px solid var(--gold);
+      border-bottom: 2px solid var(--gold);
+    }
+
+    .document {
+      position: relative;
+      padding: 66px 50px 72px;
+      border: 1px solid rgba(138, 109, 44, .72);
+      background:
+        linear-gradient(90deg, transparent 0 26px, rgba(138, 109, 44, .075) 26px 27px, transparent 27px),
+        radial-gradient(circle at 12% 7%, rgba(255, 255, 255, .58), transparent 24%),
+        radial-gradient(circle at 88% 94%, rgba(197, 167, 104, .09), transparent 28%),
+        var(--paper);
+      box-shadow:
+        inset 0 0 45px rgba(107, 79, 35, .055),
+        inset 0 0 0 5px rgba(255, 252, 244, .48),
+        inset 0 0 0 6px rgba(216, 190, 126, .38);
+    }
+
+    .document > section,
+    .document > .divider {
+      position: relative;
+      z-index: 1;
+    }
+
+    .masthead {
+      padding: 0 18px 34px;
+      border-bottom: 3px double rgba(138, 109, 44, .48);
+    }
+
+    .masthead .republic {
+      margin-bottom: 9px;
+      font-weight: 700;
+    }
+
+    .agency {
+      margin-top: 0;
+      line-height: 1.75;
+    }
+
+    .emblem {
+      width: 92px;
+      height: 92px;
+      margin-block: 27px 23px;
+      padding: 10px;
+      border: 1px solid rgba(138, 109, 44, .55);
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(239, 224, 166, .3), transparent 68%);
+      box-shadow: 0 0 0 4px var(--paper), 0 0 0 5px rgba(138, 109, 44, .24);
+    }
+
+    .certificate-number {
+      padding: 7px 17px;
+      border: 1px solid rgba(138, 109, 44, .52);
+      background: rgba(239, 224, 166, .16);
+      box-shadow: inset 0 0 0 3px var(--paper), inset 0 0 0 4px rgba(216, 190, 126, .38);
+    }
+
+    .divider {
+      width: min(270px, 62%);
+      height: 17px;
+      margin-block: 72px;
+    }
+
+    .divider::before {
+      top: 6px;
+      border-top: 3px double rgba(138, 109, 44, .5);
+    }
+
+    .divider::after {
+      top: 2px;
+      width: 9px;
+      height: 9px;
+      box-shadow: 0 0 0 5px var(--paper);
+    }
+
+    #s1 {
+      padding: 2px 18px 0;
+      background: none;
+    }
+
+    #s1 .title { margin-block: 0; }
+
+    #s1::after {
+      content: "";
+      display: block;
+      width: 8px;
+      height: 8px;
+      margin: 29px auto 0;
+      border: 1px solid var(--gold);
+      background: var(--paper);
+      transform: rotate(45deg);
+    }
+
+    #s2 {
+      max-width: 520px;
+      padding: 7px 24px 3px;
+    }
+
+    .names-intro {
+      margin-top: 0;
+      letter-spacing: .025em;
+    }
+
+    .connector {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      width: min(190px, 55%);
+      margin-inline: auto;
+    }
+
+    .connector::before,
+    .connector::after {
+      content: "";
+      flex: 1;
+      border-top: 1px solid rgba(138, 109, 44, .38);
+    }
+
+    #s3 {
+      max-width: 490px;
+      padding-inline: 24px;
+      font-size: 15px;
+      text-align: justify;
+      text-align-last: center;
+    }
+
+    .register {
+      border: 2px solid rgba(138, 109, 44, .54);
+      background: rgba(255, 252, 244, .42);
+      box-shadow: 0 0 0 4px var(--paper), 0 0 0 5px rgba(138, 109, 44, .28);
+    }
+
+    .register tr:nth-child(even) {
+      background: rgba(237, 226, 204, .42);
+    }
+
+    .register th,
+    .register td {
+      padding-block: 13px;
+      border-bottom-color: rgba(138, 109, 44, .28);
+    }
+
+    .register th {
+      font-size: .82em;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+    }
+
+    .article-title {
+      gap: 10px;
+      margin-bottom: 54px;
+    }
+
+    .article-title::before,
+    .article-title::after {
+      border-top: 3px double rgba(138, 109, 44, .48);
+    }
+
+    .article-title > span {
+      padding: 11px 18px;
+      border: 1px solid rgba(138, 109, 44, .48);
+      background: rgba(239, 224, 166, .17);
+      box-shadow: inset 0 0 0 3px var(--paper), inset 0 0 0 4px rgba(216, 190, 126, .28);
+    }
+
+    .article-group {
+      padding-left: 18px;
+      border-left: 1px solid rgba(138, 109, 44, .26);
+    }
+
+    .clause {
+      padding: 0 12px 0 31px;
+      border: 0;
+    }
+
+    .clause + .clause {
+      margin-top: 62px;
+    }
+
+    .clause h3 {
+      margin: 0 0 29px -31px;
+      padding: 10px 14px 10px 30px;
+      border-top: 1px solid rgba(138, 109, 44, .3);
+      border-bottom: 1px solid rgba(138, 109, 44, .3);
+      background: linear-gradient(90deg, rgba(237, 226, 204, .72), rgba(237, 226, 204, .16) 74%, transparent);
+    }
+
+    .clause p,
+    .clause li {
+      text-align: justify;
+      hyphens: auto;
+    }
+
+    .clause .legal-quote,
+    .clause .declaration,
+    .clause .minister,
+    .clause .probably {
+      text-align: center;
+    }
+
+    .legal-quote {
+      max-width: 86%;
+      padding: 18px 20px;
+      border-top: 1px solid rgba(138, 109, 44, .28);
+      border-bottom: 1px solid rgba(138, 109, 44, .28);
+      background: rgba(255, 252, 244, .3);
+    }
+
+    .declaration {
+      padding-block: 12px;
+      border-top: 3px double rgba(138, 109, 44, .46);
+      border-bottom: 3px double rgba(138, 109, 44, .46);
+    }
+
+    .mutual-obligations {
+      padding: 34px 30px 30px;
+      border: 1px solid rgba(138, 109, 44, .34);
+      background: rgba(255, 252, 244, .28);
+      box-shadow: inset 0 0 0 4px var(--paper), inset 0 0 0 5px rgba(216, 190, 126, .2);
+    }
+
+    .mutual-obligations .article-title {
+      margin-inline: -12px;
+    }
+
+    .fineprint {
+      padding: 35px 29px 27px;
+      border: 1px dashed rgba(107, 58, 51, .42);
+      background:
+        linear-gradient(rgba(237, 226, 204, .58), rgba(237, 226, 204, .38)),
+        repeating-linear-gradient(0deg, transparent 0 27px, rgba(138, 109, 44, .045) 27px 28px);
+      box-shadow: 0 0 0 5px var(--paper), 0 0 0 6px rgba(138, 109, 44, .2);
+    }
+
+    .fineprint h2 {
+      padding-bottom: 17px;
+      border-bottom: 1px solid rgba(107, 58, 51, .28);
+    }
+
+    .signatures {
+      max-width: 500px;
+      padding: 38px 24px 18px;
+      border-top: 3px double rgba(138, 109, 44, .5);
+      border-bottom: 1px solid rgba(138, 109, 44, .32);
+      background: linear-gradient(180deg, rgba(255, 252, 244, .28), transparent 72%);
+    }
+
+    .issued-date {
+      margin-top: 0;
+      letter-spacing: .025em;
+    }
+
+    .issuer {
+      background: rgba(255, 252, 244, .32);
+    }
+
+    .seal {
+      color: #704039;
+      opacity: .68;
+      mix-blend-mode: multiply;
+    }
+
+    .js-write .seal.stamped { opacity: .68; }
+
     @media (max-width: 430px) {
-      .document-shell { margin: 0; width: 100%; border-inline: 0; }
-      .document { padding: 42px 20px 48px; }
+      .document-shell { margin: 0; width: 100%; padding: 5px; border-inline: 0; }
+      .document { padding: 48px 23px 54px; background-position: -8px 0, 0 0, 0 0, 0 0; }
       .section-space { margin-top: 60px; }
       .divider { margin-block: 58px; }
       .register { font-size: 11.5px; }
       .register th, .register td { padding: 10px 7px; }
       .seal { width: 106px; height: 106px; }
-      .seal-approved, .seal-return, .seal-permanent { right: -22px; }
-      .couple-signatures { gap: 18px; font-size: 10px; }
+      .seal-approved, .seal-return, .seal-permanent { right: 0; }
+      #s1 { padding-inline: 13px; }
+      #s2 { padding: 31px 14px 29px; }
+      #s3 { padding-inline: 8px; }
+      .article-group { padding-left: 10px; }
+      .clause { padding-inline: 22px 5px; }
+      .clause h3 { margin-left: -22px; padding-left: 21px; }
+      .mutual-obligations { padding: 28px 18px 24px; }
+      .fineprint { padding-inline: 20px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -506,9 +933,11 @@
       .ch, .js-write .ch { opacity: 1 !important; }
       .js-write .ch.cursor::after { display: none; }
       .seal, .js-write .seal { opacity: .78 !important; transition: none; }
+      .reading-progress { display: none; }
     }
 
     @media print {
+      @page { margin: 14mm; }
       html, body { background: var(--paper); }
       body::before { position: absolute; }
       .document-shell { margin: 0 auto; box-shadow: none; }
@@ -516,6 +945,9 @@
       .ch, .js-write .ch { opacity: 1 !important; }
       .js-write .ch.cursor::after { display: none; }
       .seal, .js-write .seal { opacity: .78 !important; }
+      .clause, .register, .issuer { break-inside: avoid; }
+      .article-title { break-after: avoid; }
+      .reading-progress { display: none; }
     }
   </style>
 </head>
@@ -528,6 +960,8 @@
       </filter>
     </defs>
   </svg>
+
+  <div class="reading-progress" aria-hidden="true"></div>
 
   <main class="document-shell">
     <article class="document" aria-label="Сватбено удостоверение за семейство Кавръкови">
@@ -557,9 +991,9 @@
 
       <section id="s2" data-block="S2" data-write class="section-space">
         <p class="names-intro">С настоящото се удостоверява, че</p>
-        <div class="name">НЕВЕНА СПАСОВА</div>
+        <p class="name"><span class="name-text">Невена Спасова</span></p>
         <div class="connector">и</div>
-        <div class="name">НИКОЛАЙ КАВРЪКОВ</div>
+        <p class="name"><span class="name-text">Николай Кавръков</span></p>
       </section>
 
       <section id="s3" data-block="S3" data-write class="section-space certifies">
@@ -580,7 +1014,7 @@
           </tbody>
         </table>
 
-        <svg class="seal seal-approved" data-seal-for="s4" viewBox="0 0 120 120" aria-hidden="true">
+        <svg class="seal seal-approved" data-seal-for="s4" viewBox="0 0 120 120" role="img" aria-label="Печат: Одобрено за цял живот">
           <defs><path id="seal-path-approved" d="M20 62a40 40 0 1 1 80 0"/></defs>
           <circle cx="60" cy="60" r="51" stroke-width="2"/><circle cx="60" cy="60" r="45" stroke-width="1"/>
           <text><textPath href="#seal-path-approved" startOffset="50%" text-anchor="middle">ОДОБРЕНО ЗА ЦЯЛ ЖИВОТ</textPath></text>
@@ -590,20 +1024,19 @@
 
       <div class="divider" aria-hidden="true"></div>
 
-      <section id="s5" data-block="S5" data-write>
-        <h2 class="article-title">ЧЛЕН I — ОБЩИ УСЛОВИЯ</h2>
-      </section>
+      <section id="s5" data-block="S5" class="article-group">
+        <h2 class="article-title"><span data-write>ЧЛЕН I — ОБЩИ УСЛОВИЯ</span></h2>
 
-      <section id="s5-1" data-block="S5.1" data-write class="clause">
+        <section id="s5-1" data-block="S5.1" data-write class="clause">
         <h3>§1. Пунктуалност</h3>
         <p>Николай се задължава да полага всички разумни усилия да пристига навреме.</p>
         <p>За целите на настоящия документ „навреме“ означава момент, който е сравнително близо до предварително уговорения час.</p>
         <p>При системни нарушения Невена има пълното право да произнесе:</p>
         <p class="legal-quote">„Аз нали ти казах да тръгнем по-рано.“</p>
         <p>Решението е окончателно и не подлежи на обжалване.</p>
-      </section>
+        </section>
 
-      <section id="s5-2" data-block="S5.2" data-write class="clause">
+        <section id="s5-2" data-block="S5.2" data-write class="clause">
         <h3>§2. Финансови въпроси</h3>
         <p>Невена получава официално разрешение да закупува неща, които са:</p>
         <ul class="dash-list">
@@ -618,31 +1051,43 @@
         <p class="declaration">НЕВЕНА Е ВИНАГИ ПРАВА.</p>
         <p>Николай, моля за съдействие. Това е в интерес на брака.</p>
 
-        <svg class="seal seal-return" data-seal-for="s5-2" viewBox="0 0 120 120" aria-hidden="true">
+        <svg class="seal seal-return" data-seal-for="s5-2" viewBox="0 0 120 120" role="img" aria-label="Печат: Не подлежи на връщане">
           <defs><path id="seal-path-return" d="M20 62a40 40 0 1 1 80 0"/></defs>
           <circle cx="60" cy="60" r="51" stroke-width="2"/><circle cx="60" cy="60" r="45" stroke-width="1"/>
           <text><textPath href="#seal-path-return" startOffset="50%" text-anchor="middle">НЕ ПОДЛЕЖИ НА ВРЪЩАНЕ</textPath></text>
           <path d="M30 70h60M35 75h50"/><polygon points="60,81 63,87 70,88 65,93 66,100 60,96 54,100 55,93 50,88 57,87"/>
         </svg>
-      </section>
+        </section>
 
-      <section id="s5-3" data-block="S5.3" data-write data-mode="words" class="clause">
-        <h3>§3. При възникване на непредвидени обстоятелства и нежелано допълнително напрежение</h3>
+        <section id="s5-3" data-block="S5.3" data-write data-mode="words" class="clause">
+        <h3>§3. Национална стратегия за семейно благополучие</h3>
         <p>В случай на инцидент, непредвидена ситуация или друго обстоятелство, водещо до излишно напрежение в домакинството, Николай се задължава да предприеме всички необходими действия за отстраняване на последствията.</p>
         <p>Това включва, но не се ограничава до:</p>
         <ul class="dash-list">
           <li>отстраняване на причинените щети;</li>
           <li>съдействие при възстановяване на засегнатото имущество;</li>
           <li>поемане на отговорност за случилото се;</li>
-          <li>и, което е най-важно, полагане на всички разумни усилия за възстановяване на спокойствието на Невена.</li>
+          <li>и, което е най-важно, полагане на всички разумни усилия за възстановяване на спокойствието на Невена</li>
         </ul>
         <p>Особено внимание следва да се обръща при работа с кисело мляко в близост до прясно изпрани дрехи, предвид вече съществуващ инцидент.</p>
-        <p>В случай че ситуацията е причинена от Николай, неговите задължения се считат за изпълнени едва когато проблемът е отстранен <strong class="gold-emphasis">И</strong> Невена отново е спокойна.</p>
+        <p>В случай че ситуацията е причинена от Николай, неговите задължения се считат за изпълнени едва когато проблемът е отстранен <strong class="gold-emphasis">И!</strong> Невена отново е спокойна.</p>
         <p>Защото понякога не е достатъчно просто да оправиш проблема.<br>Трябва да оправиш и настроението след него.</p>
         <p>Настоящият член е в сила за неопределен срок и се прилага с особена строгост при употреба на кисело мляко.</p>
-      </section>
+        <p>Невена се задължава да се грижи за доброто физическо и емоционално състояние на Николай, като полага необходимите усилия да поддържа едновременно духа му висок, стомаха му сит и настроението му добро.</p>
+        <p>В изпълнение на настоящото задължение Невена следва:</p>
+        <ul class="dash-list">
+          <li>да разведрява обстановката, когато е необходимо;</li>
+          <li>да се грижи Николай да не остава гладен за неоправдано дълги периоди;</li>
+          <li>да внася смях, настроение и достатъчно количество хубави моменти в ежедневието;</li>
+          <li>да оказва подкрепа, когато животът стане малко по-труден;</li>
+          <li>и, при наличие на изрично или мълчаливо разрешение, да се качва на главата на Николай — в преносен и понякога буквален смисъл.</li>
+        </ul>
+        <p>Последното се допуска само при установено съгласие на Николай и при условие, че не нарушава спокойствието на домакинството.</p>
+        <p>В замяна Николай се задължава да оценява всички положени усилия, да се усмихва достатъчно често и да не забравя кой стои зад доброто му настроение.</p>
+        <p>Настоящата разпоредба е доживотна, не подлежи на отказ и се счита за особено важна за стабилността на семейство Кавръкови.</p>
+        </section>
 
-      <section id="s5-4" data-block="S5.4" data-write class="clause">
+        <section id="s5-4" data-block="S5.4" data-write data-mode="words" class="clause">
         <h3>§4. Национална стратегия за планиране</h3>
         <p>Невена официално се назначава за:</p>
         <p class="minister">Министър на плановете и списъците.</p>
@@ -655,30 +1100,40 @@
         </ol>
         <p>Невена от своя страна се уведомява, че невъзможността да контролира абсолютно всичко е технически преживяемо състояние.</p>
         <p class="probably">Вероятно.</p>
+        </section>
       </section>
 
       <div class="divider" aria-hidden="true"></div>
 
-      <section id="s6" data-block="S6" data-write class="mutual-obligations">
-        <h2 class="article-title">ЧЛЕН II — ВЗАИМНИ ЗАДЪЛЖЕНИЯ</h2>
-        <p>Страните се задължават:</p>
-        <p>да се смеят заедно, да пътуват заедно, да мечтаят заедно, да растат заедно, да се дразнят понякога, да си прощават бързо и никога да не спират да избират един друг.</p>
-        <p>Да бъдат един за друг не само любими хора, но и най-добри приятели.</p>
-        <p>Да бъдат опора, когато другият има нужда от нея.</p>
-        <p>Да се подкрепят, да се пазят и да бъдат най-големият си фен.</p>
-        <p>И никога да не забравят малките неща:</p>
-        <p class="small-gestures">една спонтанна целувка,<br>ръка, хваната под масата,<br>вътрешните шеги, които никой друг не разбира,<br>и всички онези малки жестове, които без думи казват:</p>
-        <p class="legal-quote">„Ти си важен за мен.“</p>
-        <p>И преди всичко — никога да не забравят искрата, която ги е довела дотук.</p>
-        <p>Нека любовта им остане любопитна, игрива, страстна и нежна — не само в големите и специални дни, но най-вече в обикновените.</p>
-        <p>Нека винаги помнят:</p>
-        <p class="declaration">ТЕ СА ЕДИН ОТБОР.</p>
+      <section id="s6" data-block="S6" class="mutual-obligations">
+        <h2 class="article-title"><span data-write>ЧЛЕН II — ВЗАИМНИ ЗАДЪЛЖЕНИЯ</span></h2>
+        <p data-write>Страните се задължават:</p>
+        <ul class="mutual-list">
+          <li data-write>да се смеят заедно, да пътуват заедно, да мечтаят заедно, да растат заедно, да се дразнят понякога, да си прощават бързо и никога да не спират да избират един друг.</li>
+          <li data-write>Да бъдат един за друг не само любими хора, но и най-добри приятели.</li>
+          <li data-write>Да бъдат опора, когато другият има нужда от нея.</li>
+          <li data-write>Да се подкрепят, да се пазят и да бъдат най-големият си фен.</li>
+          <li data-write>И никога да не забравят малките неща:</li>
+        </ul>
+        <ul class="gestures-list">
+          <li data-write>една спонтанна целувка,</li>
+          <li data-write>ръка, хваната под масата,</li>
+          <li data-write>вътрешните шеги, които никой друг не разбира,</li>
+          <li data-write>и всички онези малки жестове, които без думи казват:</li>
+        </ul>
+        <p class="legal-quote" data-write>„Ти си важен за мен.“</p>
+        <ul class="mutual-list">
+          <li data-write>И преди всичко — никога да не забравят искрата, която ги е довела дотук.</li>
+          <li data-write>Нека любовта им остане любопитна, игрива, страстна и нежна — не само в големите и специални дни, но най-вече в обикновените.</li>
+        </ul>
+        <p data-write>Нека винаги помнят:</p>
+        <p class="declaration" data-write>ТЕ СА ЕДИН ОТБОР.</p>
       </section>
 
       <div class="divider" aria-hidden="true"></div>
 
       <section id="s7" data-block="S7" class="fineprint">
-        <h3 data-write>ВАЖНО: МОЛЯ, ВИНАГИ ЧЕТЕТЕ СИТНИЯ ШРИФТ</h3>
+        <h2 data-write>ВАЖНО: МОЛЯ, ВИНАГИ ЧЕТЕТЕ СИТНИЯ ШРИФТ</h2>
         <p data-write>Ситният шрифт всъщност не е маловажен.</p>
         <p data-write>Грижете се един за друг. Бъдете внимателни със сърцата си. Продължавайте да избирате един друг — дори в дните, в които това е малко по-трудно.</p>
         <p data-write>Бъдете си дом, но никога не спирайте да бъдете и приключение един за друг.</p>
@@ -692,18 +1147,13 @@
 
       <div class="divider" aria-hidden="true"></div>
 
-      <section id="s8" data-block="S8" data-write class="signatures">
+      <section id="s8" data-block="S8" class="signatures">
         <p class="issued-date">Настоящото удостоверение е издадено<br>на 21.08.2026 г.</p>
-
-        <div class="couple-signatures">
-          <div><span class="signature-line"></span>Невена Спасова</div>
-          <div><span class="signature-line"></span>Николай Кавръков</div>
-        </div>
 
         <p class="issuer">Издадено, заверено и одобрено с любов,<span class="issuer-name">Мирела Василева</span></p>
         <p class="archive">Рег. № АГ-21082026 / 001</p>
 
-        <svg class="seal seal-permanent" data-seal-for="s8" viewBox="0 0 120 120" aria-hidden="true">
+        <svg class="seal seal-permanent stamped" data-seal-for="s8" viewBox="0 0 120 120" role="img" aria-label="Печат: Безсрочно">
           <defs><path id="seal-path-permanent" d="M20 62a40 40 0 1 1 80 0"/></defs>
           <circle cx="60" cy="60" r="51" stroke-width="2"/><circle cx="60" cy="60" r="45" stroke-width="1"/>
           <text><textPath href="#seal-path-permanent" startOffset="50%" text-anchor="middle">БЕЗСРОЧНО</textPath></text>
@@ -715,13 +1165,16 @@
 
   <script>
     (() => {
-      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if (reduced) return;
+      const root = document.documentElement;
+      const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+      if (motion.matches) {
+        root.classList.remove('write-prep');
+        return;
+      }
 
-      document.body.classList.add('js-write');
       const blocks = [...document.querySelectorAll('[data-write]')];
-      const active = new Set();
       const state = new Map();
+      const progressBar = document.querySelector('.reading-progress');
 
       const shouldSkip = node => node.parentElement.closest('svg, script, style') || !node.nodeValue.trim();
 
@@ -750,8 +1203,12 @@
         state.set(block, { units, revealed: 0 });
       });
 
+      root.classList.add('js-write');
+
       const stamp = block => {
-        document.querySelectorAll(`[data-seal-for="${block.id}"]`).forEach(seal => seal.classList.add('stamped'));
+        const owner = block.id ? block : block.closest('[id]');
+        if (!owner?.id) return;
+        document.querySelectorAll(`[data-seal-for="${owner.id}"]`).forEach(seal => seal.classList.add('stamped'));
       };
 
       const reveal = (block, amount) => {
@@ -761,8 +1218,13 @@
         if (item.revealed > 0) item.units[item.revealed - 1]?.classList.remove('cursor');
         for (let i = item.revealed; i < next; i++) item.units[i].classList.add('revealed');
         item.revealed = next;
-        if (next < item.units.length && next > 0) item.units[next - 1].classList.add('cursor');
+        if (next < item.units.length && next > 0) {
+          block.classList.add('writing');
+          item.units[next - 1].classList.add('cursor');
+        }
         if (next === item.units.length) {
+          block.classList.remove('writing');
+          block.classList.add('written');
           item.units[next - 1]?.classList.remove('cursor');
           stamp(block);
         }
@@ -773,6 +1235,12 @@
       const updateBlock = block => {
         const item = state.get(block);
         const rect = block.getBoundingClientRect();
+
+        if (rect.bottom < 0) {
+          reveal(block, item.units.length);
+          return true;
+        }
+
         const anchorY = window.innerHeight * .72;
         const extra = Number(block.dataset.revealExtra || 120);
         const distance = block === lastBlock
@@ -780,11 +1248,21 @@
           : rect.height + extra;
         const progress = Math.max(0, Math.min(1, (anchorY - rect.top) / distance));
         reveal(block, Math.ceil(progress * item.units.length));
+        return item.revealed === item.units.length;
       };
 
       let ticking = false;
       const update = () => {
-        active.forEach(updateBlock);
+        const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+        const pageProgress = scrollable > 0 ? window.scrollY / scrollable : 1;
+        progressBar.style.width = `${Math.min(1, Math.max(0, pageProgress)) * 100}%`;
+
+        for (const block of blocks) {
+          const item = state.get(block);
+          if (item.revealed === item.units.length) continue;
+          const complete = updateBlock(block);
+          if (!complete) break;
+        }
         ticking = false;
       };
 
@@ -795,22 +1273,17 @@
         }
       };
 
-      const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            active.add(entry.target);
-          } else {
-            active.delete(entry.target);
-            if (entry.boundingClientRect.bottom < 0) reveal(entry.target, state.get(entry.target).units.length);
-          }
-        });
-        requestUpdate();
-      }, { rootMargin: '25% 0px 35% 0px' });
-
-      blocks.forEach(block => observer.observe(block));
       window.addEventListener('scroll', requestUpdate, { passive: true });
       window.addEventListener('resize', requestUpdate, { passive: true });
-      requestUpdate();
+
+      motion.addEventListener('change', event => {
+        if (!event.matches) return;
+        blocks.forEach(block => reveal(block, state.get(block).units.length));
+        root.classList.remove('js-write');
+      });
+
+      update();
+      requestAnimationFrame(() => root.classList.remove('write-prep'));
     })();
   </script>
 </body>
