@@ -31,7 +31,6 @@
       --gold-light: #D8BE7E;
       --citrine: #EFE0A6;
       --seal: #6B3A33;
-      --panel-background: rgba(237, 226, 204, .38);
 
       --font-display: "Prata", Georgia, "Times New Roman", serif;
       --font-script: "Great Vibes", cursive;
@@ -108,18 +107,19 @@
 
     .masthead {
       text-align: center;
-      font-family: var(--font-mono);
+      font-family: var(--font-body);
+      font-weight: 500;
       color: var(--ink-soft);
-      letter-spacing: .08em;
+      letter-spacing: .035em;
       line-height: 1.55;
-      font-size: 10.5px;
+      font-size: 11px;
       text-transform: uppercase;
     }
 
     .masthead .republic {
       color: var(--ink);
       font-size: 12px;
-      letter-spacing: .18em;
+      letter-spacing: .06em;
     }
 
     .agency {
@@ -172,6 +172,9 @@
     }
 
     .name {
+      display: flex;
+      justify-content: center;
+      width: 100%;
       max-width: 100%;
       margin: 0 auto;
       font-family: var(--font-script);
@@ -185,6 +188,9 @@
     }
 
     .name-text {
+      display: block;
+      width: max-content;
+      max-width: 100%;
       padding-inline: .1em;
       color: var(--gold);
       background-image: linear-gradient(
@@ -243,8 +249,8 @@
       width: 100%;
       border-collapse: collapse;
       border: 1px solid var(--gold-light);
-      background: var(--paper-deep);
-      font-family: var(--font-mono);
+      background: transparent;
+      font-family: var(--font-body);
       font-size: 13px;
       line-height: 1.45;
     }
@@ -296,7 +302,7 @@
     .clause {
       padding: 24px 18px 10px;
       border-top: 1px solid rgba(138, 109, 44, .32);
-      border-left: 2px solid rgba(138, 109, 44, .2);
+      border-left: 0;
     }
 
     .clause h3,
@@ -438,7 +444,7 @@
       max-width: 470px;
       padding: 30px 24px 24px;
       border: 1px solid rgba(138, 109, 44, .28);
-      background: var(--panel-background);
+      background: transparent;
       color: var(--ink-soft);
       font-size: 9.5px;
       line-height: 1.8;
@@ -461,7 +467,7 @@
 
     .signatures {
       padding-top: 4px;
-      font-family: var(--font-mono);
+      font-family: var(--font-body);
       font-size: 11px;
       line-height: 1.65;
       text-align: center;
@@ -577,7 +583,7 @@
     .scroll-note {
       margin: 28px 0 0;
       color: var(--ink-soft);
-      font-family: var(--font-mono);
+      font-family: var(--font-body);
       font-size: 10.5px;
       letter-spacing: .09em;
       text-align: center;
@@ -597,7 +603,7 @@
       margin: 32px auto;
       padding: 9px;
       border: 1px solid #9a7833;
-      background: rgba(246, 239, 225, .92);
+      background: var(--paper);
       box-shadow:
         0 28px 76px rgba(49, 36, 17, .24),
         0 3px 8px rgba(49, 36, 17, .12),
@@ -633,11 +639,7 @@
       position: relative;
       padding: 66px 50px 72px;
       border: 1px solid rgba(138, 109, 44, .72);
-      background:
-        linear-gradient(90deg, transparent 0 26px, rgba(138, 109, 44, .075) 26px 27px, transparent 27px),
-        radial-gradient(circle at 12% 7%, rgba(255, 255, 255, .58), transparent 24%),
-        radial-gradient(circle at 88% 94%, rgba(197, 167, 104, .09), transparent 28%),
-        var(--paper);
+      background: var(--paper);
       box-shadow:
         inset 0 0 45px rgba(107, 79, 35, .055),
         inset 0 0 0 5px rgba(255, 252, 244, .48),
@@ -657,7 +659,7 @@
 
     .masthead .republic {
       margin-bottom: 9px;
-      font-weight: 700;
+      font-weight: 500;
     }
 
     .agency {
@@ -672,14 +674,14 @@
       padding: 10px;
       border: 1px solid rgba(138, 109, 44, .55);
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(239, 224, 166, .3), transparent 68%);
+      background: transparent;
       box-shadow: 0 0 0 4px var(--paper), 0 0 0 5px rgba(138, 109, 44, .24);
     }
 
     .certificate-number {
       padding: 7px 17px;
       border: 1px solid rgba(138, 109, 44, .52);
-      background: rgba(239, 224, 166, .16);
+      background: transparent;
       box-shadow: inset 0 0 0 3px var(--paper), inset 0 0 0 4px rgba(216, 190, 126, .38);
     }
 
@@ -755,12 +757,12 @@
 
     .register {
       border: 2px solid rgba(138, 109, 44, .54);
-      background: rgba(255, 252, 244, .42);
+      background: transparent;
       box-shadow: 0 0 0 4px var(--paper), 0 0 0 5px rgba(138, 109, 44, .28);
     }
 
     .register tr:nth-child(even) {
-      background: rgba(237, 226, 204, .42);
+      background: transparent;
     }
 
     .register th,
@@ -788,13 +790,13 @@
     .article-title > span {
       padding: 11px 18px;
       border: 1px solid rgba(138, 109, 44, .48);
-      background: rgba(239, 224, 166, .17);
+      background: var(--paper);
       box-shadow: inset 0 0 0 3px var(--paper), inset 0 0 0 4px rgba(216, 190, 126, .28);
     }
 
     .article-group {
-      padding-left: 18px;
-      border-left: 1px solid rgba(138, 109, 44, .26);
+      padding-left: 0;
+      border-left: 0;
     }
 
     .clause {
@@ -811,7 +813,7 @@
       padding: 10px 14px 10px 30px;
       border-top: 1px solid rgba(138, 109, 44, .3);
       border-bottom: 1px solid rgba(138, 109, 44, .3);
-      background: linear-gradient(90deg, rgba(237, 226, 204, .72), rgba(237, 226, 204, .16) 74%, transparent);
+      background: transparent;
     }
 
     .clause p,
@@ -832,7 +834,7 @@
       padding: 18px 20px;
       border-top: 1px solid rgba(138, 109, 44, .28);
       border-bottom: 1px solid rgba(138, 109, 44, .28);
-      background: rgba(255, 252, 244, .3);
+      background: transparent;
     }
 
     .declaration {
@@ -844,7 +846,7 @@
     .mutual-obligations {
       padding: 34px 30px 30px;
       border: 1px solid rgba(138, 109, 44, .34);
-      background: var(--panel-background);
+      background: transparent;
       box-shadow: inset 0 0 0 4px var(--paper), inset 0 0 0 5px rgba(216, 190, 126, .2);
     }
 
@@ -855,9 +857,7 @@
     .fineprint {
       padding: 35px 29px 27px;
       border: 1px dashed rgba(107, 58, 51, .42);
-      background:
-        linear-gradient(var(--panel-background), var(--panel-background)),
-        repeating-linear-gradient(0deg, transparent 0 27px, rgba(138, 109, 44, .045) 27px 28px);
+      background: transparent;
       box-shadow: 0 0 0 5px var(--paper), 0 0 0 6px rgba(138, 109, 44, .2);
     }
 
@@ -871,7 +871,7 @@
       padding: 38px 24px 18px;
       border-top: 3px double rgba(138, 109, 44, .5);
       border-bottom: 1px solid rgba(138, 109, 44, .32);
-      background: linear-gradient(180deg, rgba(255, 252, 244, .28), transparent 72%);
+      background: transparent;
     }
 
     .issued-date {
@@ -880,7 +880,7 @@
     }
 
     .issuer {
-      background: rgba(255, 252, 244, .32);
+      background: transparent;
     }
 
     .seal {
@@ -893,7 +893,7 @@
 
     @media (max-width: 430px) {
       .document-shell { margin: 0; width: 100%; padding: 5px; border-inline: 0; }
-      .document { padding: 46px 14px 52px; background-position: -16px 0, 0 0, 0 0, 0 0; }
+      .document { padding: 46px 14px 52px; }
       .section-space { margin-top: 60px; }
       .divider { margin-block: 58px; }
       .register { font-size: 11.5px; }
@@ -904,7 +904,7 @@
       #s2 { padding: 31px 0 29px; }
       #s3 { padding-inline: 2px; text-align: left; text-align-last: auto; }
       .article-title > span { padding-inline: 12px; }
-      .article-group { padding-left: 4px; }
+      .article-group { padding-left: 0; }
       .clause { padding-inline: 16px 3px; }
       .clause h3 { margin-left: -16px; padding-left: 15px; }
       .clause p,
@@ -1019,7 +1019,7 @@
         <h2 class="article-title"><span data-write>ЧЛЕН I — ОБЩИ УСЛОВИЯ</span></h2>
 
         <section id="s5-1" data-block="S5.1" data-write class="clause">
-        <h3>§1. Пунктуалност</h3>
+        <h3>1. Пунктуалност</h3>
         <p>Николай се задължава да полага всички разумни усилия да пристига навреме.</p>
         <p>За целите на настоящия документ „навреме“ означава момент, който е сравнително близо до предварително уговорения час.</p>
         <p>При системни нарушения Невена има пълното право да произнесе:</p>
@@ -1028,7 +1028,7 @@
         </section>
 
         <section id="s5-2" data-block="S5.2" data-write class="clause">
-        <h3>§2. Финансови въпроси</h3>
+        <h3>2. Финансови въпроси</h3>
         <p>Невена получава официално разрешение да закупува неща, които са:</p>
         <ul class="dash-list">
           <li>красиви;</li>
@@ -1051,7 +1051,7 @@
         </section>
 
         <section id="s5-3" data-block="S5.3" data-write data-mode="words" class="clause">
-        <h3>§3. Национална стратегия за семейно благополучие</h3>
+        <h3>3. Национална стратегия за семейно благополучие</h3>
         <p>В случай на инцидент, непредвидена ситуация или друго обстоятелство, водещо до излишно напрежение в домакинството, Николай се задължава да предприеме всички необходими действия за отстраняване на последствията.</p>
         <p>Това включва, но не се ограничава до:</p>
         <ul class="dash-list">
@@ -1079,7 +1079,7 @@
         </section>
 
         <section id="s5-4" data-block="S5.4" data-write data-mode="words" class="clause">
-        <h3>§4. Национална стратегия за планиране</h3>
+        <h3>4. Национална стратегия за планиране</h3>
         <p>Невена официално се назначава за:</p>
         <p class="minister">Министър на плановете и списъците.</p>
         <p>При възникване на ситуация, която не протича според плана, Николай се задължава да осигури:</p>
