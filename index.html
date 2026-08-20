@@ -919,21 +919,31 @@
 
     @media (max-width: 430px) {
       .document-shell { margin: 0; width: 100%; padding: 5px; border-inline: 0; }
-      .document { padding: 48px 23px 54px; background-position: -8px 0, 0 0, 0 0, 0 0; }
+      .document { padding: 46px 14px 52px; background-position: -16px 0, 0 0, 0 0, 0 0; }
       .section-space { margin-top: 60px; }
       .divider { margin-block: 58px; }
       .register { font-size: 11.5px; }
       .register th, .register td { padding: 10px 7px; }
       .seal { width: 106px; height: 106px; }
       .seal-approved, .seal-return, .seal-permanent { right: 0; }
-      #s1 { padding-inline: 13px; }
-      #s2 { padding: 31px 14px 29px; }
-      #s3 { padding-inline: 8px; }
-      .article-group { padding-left: 10px; }
-      .clause { padding-inline: 22px 5px; }
-      .clause h3 { margin-left: -22px; padding-left: 21px; }
-      .mutual-obligations { padding: 28px 18px 24px; }
-      .fineprint { padding-inline: 20px; }
+      #s1 { padding-inline: 8px; }
+      #s2 { padding: 31px 0 29px; }
+      #s3 { padding-inline: 2px; text-align: left; text-align-last: auto; }
+      .article-title > span { padding-inline: 12px; }
+      .article-group { padding-left: 4px; }
+      .clause { padding-inline: 16px 3px; }
+      .clause h3 { margin-left: -16px; padding-left: 15px; }
+      .clause p,
+      .clause li { text-align: left; hyphens: none; overflow-wrap: break-word; }
+      .dash-list { padding-left: 15px; }
+      .number-list { padding-left: 24px; }
+      .mutual-obligations { padding: 27px 12px 23px; }
+      .mutual-list li,
+      .gestures-list li { padding-right: 3px; }
+      .fineprint { padding: 32px 14px 25px; }
+      .signatures { padding-inline: 14px; }
+      .issuer { padding-inline: 12px; }
+      .issuer-name { white-space: nowrap; }
     }
 
     @media (prefers-reduced-motion: reduce) {
