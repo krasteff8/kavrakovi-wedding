@@ -1291,7 +1291,7 @@
             continue;
           }
 
-          const catchUpPosition = window.scrollY + window.innerHeight * .34;
+          const catchUpPosition = window.scrollY + window.innerHeight * .62;
           let catchUp = item.revealed;
           while (catchUp < item.units.length && item.thresholds[catchUp] <= catchUpPosition) catchUp++;
           reveal(block, catchUp);
