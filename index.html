@@ -1,0 +1,818 @@
+<!doctype html>
+<html lang="bg">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#F6EFE1">
+  <meta name="description" content="Едно специално удостоверение за Невена и Николай Кавръкови.">
+  <title>Удостоверение за семейство Кавръкови</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Cormorant+Garamond:wght@600&family=PT+Serif:ital,wght@0,400;0,700;1,400&family=PT+Mono&display=swap&subset=cyrillic" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #F6EFE1;
+      --paper-deep: #EDE2CC;
+      --ink: #22201C;
+      --ink-soft: #5B564C;
+      --gold: #A9873F;
+      --gold-light: #D8BE7E;
+      --citrine: #EFE0A6;
+      --seal: #6B3A33;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      background: #d9cdb8;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(ellipse at center, transparent 52%, rgba(77, 61, 36, .11) 100%),
+        var(--paper);
+      font-family: "PT Serif", Georgia, "Times New Roman", serif;
+      font-size: 16.5px;
+      line-height: 1.75;
+      text-rendering: optimizeLegibility;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      opacity: .05;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.78' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
+    }
+
+    .document-shell {
+      position: relative;
+      z-index: 1;
+      width: min(100%, 620px);
+      margin: 20px auto;
+      padding: 5px;
+      border: 1px solid var(--gold);
+      box-shadow: 0 22px 70px rgba(49, 36, 17, .18);
+    }
+
+    .document {
+      border: 1px solid var(--gold-light);
+      padding: 50px 22px 56px;
+      overflow: hidden;
+    }
+
+    section {
+      position: relative;
+      max-width: 560px;
+      margin-inline: auto;
+    }
+
+    .section-space { margin-top: 68px; }
+
+    .masthead {
+      text-align: center;
+      font-family: "PT Mono", ui-monospace, monospace;
+      color: var(--ink-soft);
+      letter-spacing: .08em;
+      line-height: 1.55;
+      font-size: 10.5px;
+      text-transform: uppercase;
+    }
+
+    .masthead .republic {
+      color: var(--ink);
+      font-size: 12px;
+      letter-spacing: .18em;
+    }
+
+    .agency {
+      max-width: 420px;
+      margin: 16px auto 0;
+    }
+
+    .emblem {
+      display: block;
+      width: 78px;
+      height: 78px;
+      margin: 24px auto 20px;
+      color: var(--gold);
+    }
+
+    .certificate-number {
+      display: inline-block;
+      padding: 5px 12px;
+      border-top: 1px solid var(--gold-light);
+      border-bottom: 1px solid var(--gold-light);
+      color: var(--ink);
+      letter-spacing: .1em;
+    }
+
+    .title,
+    .article-title,
+    .declaration {
+      font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .16em;
+    }
+
+    .title {
+      max-width: 500px;
+      margin-inline: auto;
+      font-size: clamp(17px, 4.6vw, 21px);
+      line-height: 1.55;
+      text-align: center;
+    }
+
+    .names-intro,
+    .connector { text-align: center; }
+
+    .names-intro {
+      margin-bottom: 23px;
+      color: var(--ink-soft);
+      font-size: 15px;
+      font-style: italic;
+    }
+
+    .name {
+      position: relative;
+      z-index: 0;
+      width: fit-content;
+      max-width: 100%;
+      margin: 0 auto;
+      padding-inline: .14em;
+      font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+      font-size: clamp(30px, 9vw, 42px);
+      font-weight: 600;
+      line-height: 1.18;
+      letter-spacing: .09em;
+      text-align: center;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: linear-gradient(#C9A557, #8F6F2E);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .name::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      right: 0;
+      bottom: .08em;
+      left: 0;
+      height: .24em;
+      background: var(--citrine);
+      opacity: .72;
+    }
+
+    .connector {
+      margin: 14px 0;
+      color: var(--ink-soft);
+      font-style: italic;
+    }
+
+    .certifies {
+      max-width: 500px;
+      margin-inline: auto;
+      text-align: center;
+    }
+
+    .divider {
+      position: relative;
+      width: min(220px, 52%);
+      height: 15px;
+      margin: 64px auto;
+    }
+
+    .divider::before {
+      content: "";
+      position: absolute;
+      top: 7px;
+      right: 0;
+      left: 0;
+      border-top: 1px solid var(--gold-light);
+    }
+
+    .divider::after {
+      content: "";
+      position: absolute;
+      top: 3px;
+      left: 50%;
+      width: 8px;
+      height: 8px;
+      border: 1px solid var(--gold);
+      background: var(--paper);
+      transform: translateX(-50%) rotate(45deg);
+    }
+
+    .register-wrap { position: relative; }
+
+    .register {
+      width: 100%;
+      border-collapse: collapse;
+      border: 1px solid var(--gold-light);
+      background: rgba(237, 226, 204, .67);
+      font-family: "PT Mono", ui-monospace, monospace;
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .register th,
+    .register td {
+      padding: 12px 10px;
+      border-bottom: 1px solid rgba(169, 135, 63, .32);
+      vertical-align: top;
+      text-align: left;
+    }
+
+    .register tr:last-child th,
+    .register tr:last-child td { border-bottom: 0; }
+
+    .register th {
+      width: 45%;
+      color: var(--ink-soft);
+      font-weight: 400;
+    }
+
+    .register td { font-weight: 700; }
+
+    .article-title {
+      margin: 0 0 48px;
+      font-size: clamp(17px, 4.6vw, 21px);
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    .clause + .clause { margin-top: 70px; }
+
+    .clause h3,
+    .fineprint h3 {
+      margin: 0 0 26px;
+      font-family: "PT Serif", Georgia, "Times New Roman", serif;
+      font-size: 14px;
+      line-height: 1.55;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .clause p { margin: 0 0 22px; }
+
+    .legal-quote {
+      margin: 32px auto;
+      text-align: center;
+      font-style: italic;
+    }
+
+    .dash-list {
+      list-style: none;
+      margin: 22px 0;
+      padding: 0 0 0 18px;
+    }
+
+    .dash-list li::before {
+      content: "— ";
+      margin-left: -18px;
+    }
+
+    .declaration {
+      margin: 34px 0;
+      color: var(--gold);
+      font-size: clamp(18px, 5.2vw, 25px);
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    .gold-emphasis { color: var(--gold); font-weight: 700; }
+
+    .minister {
+      margin: 24px 0 26px;
+      text-align: center;
+      font-style: italic;
+    }
+
+    .number-list { padding-left: 30px; }
+    .number-list li { padding-left: 5px; }
+
+    .probably {
+      margin: 66px 0 !important;
+      text-align: center;
+      font-style: italic;
+    }
+
+    .mutual-obligations {
+      max-width: 510px;
+      color: var(--ink-soft);
+      font-size: 14.5px;
+      line-height: 1.82;
+    }
+
+    .mutual-obligations .article-title {
+      margin-bottom: 36px;
+      color: var(--ink);
+      font-size: 14.5px;
+      letter-spacing: .13em;
+    }
+
+    .mutual-obligations p { margin: 0 0 19px; }
+
+    .small-gestures {
+      margin: 28px auto !important;
+      padding-left: 14px;
+      line-height: 2.05;
+    }
+
+    .fineprint {
+      max-width: 470px;
+      color: var(--ink-soft);
+      font-size: 11.5px;
+      line-height: 1.7;
+    }
+
+    .fineprint h3 {
+      color: var(--ink);
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .fineprint p { margin: 0 0 17px; }
+
+    .fineprint .bridge {
+      margin-top: 34px;
+      color: var(--ink);
+      text-align: center;
+      font-style: italic;
+    }
+
+    .signatures {
+      padding-top: 4px;
+      font-family: "PT Mono", ui-monospace, monospace;
+      font-size: 11px;
+      line-height: 1.65;
+      text-align: center;
+    }
+
+    .issued-date { margin-bottom: 44px; }
+
+    .couple-signatures {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin: 0 0 62px;
+    }
+
+    .signature-line {
+      display: block;
+      height: 1px;
+      margin-bottom: 10px;
+      background: var(--gold-light);
+    }
+
+    .issuer {
+      position: relative;
+      max-width: 380px;
+      margin: 0 auto 50px;
+      padding: 24px 16px 20px;
+      border-top: 1px solid var(--gold-light);
+      border-bottom: 1px solid var(--gold-light);
+      font-family: "PT Serif", Georgia, "Times New Roman", serif;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .issuer-name {
+      display: block;
+      margin-top: 8px;
+      color: var(--gold);
+      font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+      font-size: 24px;
+      font-weight: 600;
+      letter-spacing: .06em;
+    }
+
+    .archive {
+      margin: 0;
+      color: var(--ink-soft);
+      letter-spacing: .05em;
+    }
+
+    .seal {
+      position: absolute;
+      z-index: 3;
+      width: 126px;
+      height: 126px;
+      color: var(--seal);
+      opacity: .78;
+      pointer-events: none;
+      transition: opacity 180ms ease, transform 180ms ease;
+      filter: url(#rough-ink);
+    }
+
+    .js-write .seal {
+      opacity: 0;
+    }
+
+    .js-write .seal.stamped {
+      opacity: .78;
+    }
+
+    .seal-approved {
+      right: -14px;
+      bottom: -42px;
+      transform: rotate(-7deg);
+    }
+
+    .js-write .seal-approved { transform: rotate(-7deg) scale(1.08); }
+    .js-write .seal-approved.stamped { transform: rotate(-7deg) scale(1); }
+
+    .seal-return {
+      right: -16px;
+      bottom: 56px;
+      transform: rotate(5deg);
+    }
+
+    .js-write .seal-return { transform: rotate(5deg) scale(1.08); }
+    .js-write .seal-return.stamped { transform: rotate(5deg) scale(1); }
+
+    .seal-permanent {
+      right: -12px;
+      bottom: -28px;
+      transform: rotate(-3deg);
+    }
+
+    .js-write .seal-permanent { transform: rotate(-3deg) scale(1.08); }
+    .js-write .seal-permanent.stamped { transform: rotate(-3deg) scale(1); }
+
+    .seal circle,
+    .seal path,
+    .seal polygon {
+      fill: none;
+      stroke: currentColor;
+    }
+
+    .seal text {
+      fill: currentColor;
+      font-family: "PT Mono", ui-monospace, monospace;
+      font-size: 9px;
+      letter-spacing: .085em;
+    }
+
+    .ch { opacity: 1; }
+    .js-write .ch { opacity: 0; }
+    .js-write .ch.revealed { opacity: 1; }
+
+    .js-write .ch.cursor::after {
+      content: "";
+      display: inline-block;
+      width: 2px;
+      height: 1.05em;
+      margin: 0 -1px -0.17em 1px;
+      background: var(--gold);
+      animation: blink 530ms steps(1, end) infinite;
+    }
+
+    @keyframes blink { 50% { opacity: 0; } }
+
+    .scroll-note {
+      margin: 28px 0 0;
+      color: var(--ink-soft);
+      font-family: "PT Mono", ui-monospace, monospace;
+      font-size: 9px;
+      letter-spacing: .09em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 430px) {
+      .document-shell { margin: 0; width: 100%; border-inline: 0; }
+      .document { padding: 42px 20px 48px; }
+      .section-space { margin-top: 60px; }
+      .divider { margin-block: 58px; }
+      .register { font-size: 11.5px; }
+      .register th, .register td { padding: 10px 7px; }
+      .seal { width: 106px; height: 106px; }
+      .seal-approved, .seal-return, .seal-permanent { right: -22px; }
+      .couple-signatures { gap: 18px; font-size: 10px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .ch, .js-write .ch { opacity: 1 !important; }
+      .js-write .ch.cursor::after { display: none; }
+      .seal, .js-write .seal { opacity: .78 !important; transition: none; }
+    }
+
+    @media print {
+      html, body { background: var(--paper); }
+      body::before { position: absolute; }
+      .document-shell { margin: 0 auto; box-shadow: none; }
+      .scroll-note { display: none; }
+      .ch, .js-write .ch { opacity: 1 !important; }
+      .js-write .ch.cursor::after { display: none; }
+      .seal, .js-write .seal { opacity: .78 !important; }
+    }
+  </style>
+</head>
+<body>
+  <svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
+    <defs>
+      <filter id="rough-ink" x="-20%" y="-20%" width="140%" height="140%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.018 0.32" numOctaves="2" seed="7" result="noise"/>
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="0.9" xChannelSelector="R" yChannelSelector="G"/>
+      </filter>
+    </defs>
+  </svg>
+
+  <main class="document-shell">
+    <article class="document" aria-label="Сватбено удостоверение за семейство Кавръкови">
+      <section id="s0" data-block="S0" data-write class="masthead">
+        <div class="republic">РЕПУБЛИКА БЪЛГАРИЯ</div>
+        <div class="agency">ДЪРЖАВНА АГЕНЦИЯ ПО БРАЧНИТЕ ВЪПРОСИ,<br>ВЕЧНОТО ЩАСТИЕ И ДРУГИ НЕОТЛОЖНИ ДЕЛА</div>
+
+        <svg class="emblem" viewBox="0 0 100 100" role="img" aria-label="Символ на измислената агенция">
+          <g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M50 17l3.2 6.4 7.1 1-5.15 5 1.22 7.08L50 33.15l-6.37 3.33 1.22-7.08-5.15-5 7.1-1z"/>
+            <path d="M50 39c8-8 20-2 20 7 0 12-20 25-20 25S30 58 30 46c0-9 12-15 20-7z"/>
+            <circle cx="44" cy="50" r="10"/><circle cx="56" cy="50" r="10"/>
+            <path d="M26 73c-10-8-13-20-10-33m10 33c-4-3-7-7-9-11m7 8c-7 0-11-2-14-5m11-2c-7-2-10-5-12-9m10 1c-5-4-7-8-7-12m7 3c-4-5-4-9-3-13M74 73c10-8 13-20 10-33m-10 33c4-3 7-7 9-11m-7 8c7 0 11-2 14-5m-11-2c7-2 10-5 12-9m-10 1c5-4 7-8 7-12m-7 3c4-5 4-9 3-13"/>
+            <path d="M28 78c13 5 31 5 44 0l-5 8c-11 3-23 3-34 0z"/>
+          </g>
+        </svg>
+
+        <div class="certificate-number">УДОСТОВЕРЕНИЕ № 210826</div>
+        <p class="scroll-note">Превъртете, за да бъде изписан документът</p>
+      </section>
+
+      <div class="divider" aria-hidden="true"></div>
+
+      <section id="s1" data-block="S1" data-write>
+        <h1 class="title">ОФИЦИАЛНО УДОСТОВЕРЕНИЕ<br>ЗА БРАК И ДОЖИВОТНО ПАРТНЬОРСТВО</h1>
+      </section>
+
+      <section id="s2" data-block="S2" data-write class="section-space">
+        <p class="names-intro">С настоящото се удостоверява, че</p>
+        <div class="name">НЕВЕНА СПАСОВА</div>
+        <div class="connector">и</div>
+        <div class="name">НИКОЛАЙ КАВРЪКОВ</div>
+      </section>
+
+      <section id="s3" data-block="S3" data-write class="section-space certifies">
+        <p>на 21 август 2026 г. доброволно са встъпили в доживотно партньорство, което е юридически обвързващо, емоционално необратимо и не подлежи на връщане или замяна.</p>
+      </section>
+
+      <div class="divider" aria-hidden="true"></div>
+
+      <section id="s4" data-block="S4" data-write class="register-wrap">
+        <table class="register" aria-label="Регистрационни данни">
+          <tbody>
+            <tr><th scope="row">Статус</th><td>Официално заедно</td></tr>
+            <tr><th scope="row">Срок</th><td>Доживотен</td></tr>
+            <tr><th scope="row">Подновяване</th><td>Не се изисква</td></tr>
+            <tr><th scope="row">Връщане на стоката</th><td>Строго забранено</td></tr>
+            <tr><th scope="row">Ново семейство</th><td>Кавръкови</td></tr>
+            <tr><th scope="row">Учредено на</th><td>21.08.2026 г.</td></tr>
+          </tbody>
+        </table>
+
+        <svg class="seal seal-approved" data-seal-for="s4" viewBox="0 0 120 120" aria-hidden="true">
+          <defs><path id="seal-path-approved" d="M20 62a40 40 0 1 1 80 0"/></defs>
+          <circle cx="60" cy="60" r="51" stroke-width="2"/><circle cx="60" cy="60" r="45" stroke-width="1"/>
+          <text><textPath href="#seal-path-approved" startOffset="50%" text-anchor="middle">ОДОБРЕНО ЗА ЦЯЛ ЖИВОТ</textPath></text>
+          <path d="M28 68c12 15 52 15 64 0"/><polygon points="60,76 63,82 70,83 65,88 66,95 60,91 54,95 55,88 50,83 57,82"/>
+        </svg>
+      </section>
+
+      <div class="divider" aria-hidden="true"></div>
+
+      <section id="s5" data-block="S5" data-write>
+        <h2 class="article-title">ЧЛЕН I — ОБЩИ УСЛОВИЯ</h2>
+      </section>
+
+      <section id="s5-1" data-block="S5.1" data-write class="clause">
+        <h3>§1. Пунктуалност</h3>
+        <p>Николай се задължава да полага всички разумни усилия да пристига навреме.</p>
+        <p>За целите на настоящия документ „навреме“ означава момент, който е сравнително близо до предварително уговорения час.</p>
+        <p>При системни нарушения Невена има пълното право да произнесе:</p>
+        <p class="legal-quote">„Аз нали ти казах да тръгнем по-рано.“</p>
+        <p>Решението е окончателно и не подлежи на обжалване.</p>
+      </section>
+
+      <section id="s5-2" data-block="S5.2" data-write class="clause">
+        <h3>§2. Финансови въпроси</h3>
+        <p>Невена получава официално разрешение да закупува неща, които са:</p>
+        <ul class="dash-list">
+          <li>красиви;</li>
+          <li>интересни;</li>
+          <li>абсолютно ненужни;</li>
+          <li>но по някаква необяснима причина внезапно жизненоважни.</li>
+        </ul>
+        <p>Николай има право да поставя въпроси относно тези покупки.</p>
+        <p>Понякога…</p>
+        <p>Но с оглед спокойствието, любовта и дългосрочната стабилност на този брак официалното решение гласи:</p>
+        <p class="declaration">НЕВЕНА Е ВИНАГИ ПРАВА.</p>
+        <p>Николай, моля за съдействие. Това е в интерес на брака.</p>
+
+        <svg class="seal seal-return" data-seal-for="s5-2" viewBox="0 0 120 120" aria-hidden="true">
+          <defs><path id="seal-path-return" d="M20 62a40 40 0 1 1 80 0"/></defs>
+          <circle cx="60" cy="60" r="51" stroke-width="2"/><circle cx="60" cy="60" r="45" stroke-width="1"/>
+          <text><textPath href="#seal-path-return" startOffset="50%" text-anchor="middle">НЕ ПОДЛЕЖИ НА ВРЪЩАНЕ</textPath></text>
+          <path d="M30 70h60M35 75h50"/><polygon points="60,81 63,87 70,88 65,93 66,100 60,96 54,100 55,93 50,88 57,87"/>
+        </svg>
+      </section>
+
+      <section id="s5-3" data-block="S5.3" data-write data-mode="words" class="clause">
+        <h3>§3. При възникване на непредвидени обстоятелства и нежелано допълнително напрежение</h3>
+        <p>В случай на инцидент, непредвидена ситуация или друго обстоятелство, водещо до излишно напрежение в домакинството, Николай се задължава да предприеме всички необходими действия за отстраняване на последствията.</p>
+        <p>Това включва, но не се ограничава до:</p>
+        <ul class="dash-list">
+          <li>отстраняване на причинените щети;</li>
+          <li>съдействие при възстановяване на засегнатото имущество;</li>
+          <li>поемане на отговорност за случилото се;</li>
+          <li>и, което е най-важно, полагане на всички разумни усилия за възстановяване на спокойствието на Невена.</li>
+        </ul>
+        <p>Особено внимание следва да се обръща при работа с кисело мляко в близост до прясно изпрани дрехи, предвид вече съществуващ инцидент.</p>
+        <p>В случай че ситуацията е причинена от Николай, неговите задължения се считат за изпълнени едва когато проблемът е отстранен <strong class="gold-emphasis">И</strong> Невена отново е спокойна.</p>
+        <p>Защото понякога не е достатъчно просто да оправиш проблема.<br>Трябва да оправиш и настроението след него.</p>
+        <p>Настоящият член е в сила за неопределен срок и се прилага с особена строгост при употреба на кисело мляко.</p>
+      </section>
+
+      <section id="s5-4" data-block="S5.4" data-write class="clause">
+        <h3>§4. Национална стратегия за планиране</h3>
+        <p>Невена официално се назначава за:</p>
+        <p class="minister">Министър на плановете и списъците.</p>
+        <p>При възникване на ситуация, която не протича според плана, Николай се задължава да осигури:</p>
+        <ol class="number-list">
+          <li>спокойствие;</li>
+          <li>търпение;</li>
+          <li>емоционална подкрепа;</li>
+          <li>при необходимост — храна.</li>
+        </ol>
+        <p>Невена от своя страна се уведомява, че невъзможността да контролира абсолютно всичко е технически преживяемо състояние.</p>
+        <p class="probably">Вероятно.</p>
+      </section>
+
+      <div class="divider" aria-hidden="true"></div>
+
+      <section id="s6" data-block="S6" data-write class="mutual-obligations">
+        <h2 class="article-title">ЧЛЕН II — ВЗАИМНИ ЗАДЪЛЖЕНИЯ</h2>
+        <p>Страните се задължават:</p>
+        <p>да се смеят заедно, да пътуват заедно, да мечтаят заедно, да растат заедно, да се дразнят понякога, да си прощават бързо и никога да не спират да избират един друг.</p>
+        <p>Да бъдат един за друг не само любими хора, но и най-добри приятели.</p>
+        <p>Да бъдат опора, когато другият има нужда от нея.</p>
+        <p>Да се подкрепят, да се пазят и да бъдат най-големият си фен.</p>
+        <p>И никога да не забравят малките неща:</p>
+        <p class="small-gestures">една спонтанна целувка,<br>ръка, хваната под масата,<br>вътрешните шеги, които никой друг не разбира,<br>и всички онези малки жестове, които без думи казват:</p>
+        <p class="legal-quote">„Ти си важен за мен.“</p>
+        <p>И преди всичко — никога да не забравят искрата, която ги е довела дотук.</p>
+        <p>Нека любовта им остане любопитна, игрива, страстна и нежна — не само в големите и специални дни, но най-вече в обикновените.</p>
+        <p>Нека винаги помнят:</p>
+        <p class="declaration">ТЕ СА ЕДИН ОТБОР.</p>
+      </section>
+
+      <div class="divider" aria-hidden="true"></div>
+
+      <section id="s7" data-block="S7" class="fineprint">
+        <h3 data-write>ВАЖНО: МОЛЯ, ВИНАГИ ЧЕТЕТЕ СИТНИЯ ШРИФТ</h3>
+        <p data-write>Ситният шрифт всъщност не е маловажен.</p>
+        <p data-write>Грижете се един за друг. Бъдете внимателни със сърцата си. Продължавайте да избирате един друг — дори в дните, в които това е малко по-трудно.</p>
+        <p data-write>Бъдете си дом, но никога не спирайте да бъдете и приключение един за друг.</p>
+        <p data-write>А когато животът стане шумен, сложен или изобщо не се развие по план — погледнете човека до вас.</p>
+        <p data-write>Прочетете ситния шрифт.</p>
+        <p data-write>Той има значение.</p>
+        <p data-write>Точно както имат значение малките жестове.</p>
+        <p data-write>Точно както едно тихо „Тук съм“ понякога казва повече от хиляди думи.</p>
+        <p class="bridge" data-write data-reveal-extra="220">И точно както „Обичам те“ никога не бива да се превръща в нещо, което просто приемате, че другият вече знае.</p>
+      </section>
+
+      <div class="divider" aria-hidden="true"></div>
+
+      <section id="s8" data-block="S8" data-write class="signatures">
+        <p class="issued-date">Настоящото удостоверение е издадено<br>на 21.08.2026 г.</p>
+
+        <div class="couple-signatures">
+          <div><span class="signature-line"></span>Невена Спасова</div>
+          <div><span class="signature-line"></span>Николай Кавръков</div>
+        </div>
+
+        <p class="issuer">Издадено, заверено и одобрено с любов,<span class="issuer-name">Мирела Василева</span></p>
+        <p class="archive">Рег. № АГ-21082026 / 001</p>
+
+        <svg class="seal seal-permanent" data-seal-for="s8" viewBox="0 0 120 120" aria-hidden="true">
+          <defs><path id="seal-path-permanent" d="M20 62a40 40 0 1 1 80 0"/></defs>
+          <circle cx="60" cy="60" r="51" stroke-width="2"/><circle cx="60" cy="60" r="45" stroke-width="1"/>
+          <text><textPath href="#seal-path-permanent" startOffset="50%" text-anchor="middle">БЕЗСРОЧНО</textPath></text>
+          <path d="M34 72c8-7 14-3 26 7 12-10 18-14 26-7-7 12-17 20-26 25-9-5-19-13-26-25z"/>
+        </svg>
+      </section>
+    </article>
+  </main>
+
+  <script>
+    (() => {
+      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduced) return;
+
+      document.body.classList.add('js-write');
+      const blocks = [...document.querySelectorAll('[data-write]')];
+      const active = new Set();
+      const state = new Map();
+
+      const shouldSkip = node => node.parentElement.closest('svg, script, style') || !node.nodeValue.trim();
+
+      blocks.forEach(block => {
+        const units = [];
+        const walker = document.createTreeWalker(block, NodeFilter.SHOW_TEXT);
+        const nodes = [];
+        while (walker.nextNode()) if (!shouldSkip(walker.currentNode)) nodes.push(walker.currentNode);
+
+        nodes.forEach(node => {
+          const fragment = document.createDocumentFragment();
+          const parts = block.dataset.mode === 'words'
+            ? node.nodeValue.match(/\S+\s*|\s+/g) || []
+            : [...node.nodeValue];
+
+          parts.forEach(part => {
+            const span = document.createElement('span');
+            span.className = 'ch';
+            span.textContent = part;
+            fragment.appendChild(span);
+            units.push(span);
+          });
+          node.replaceWith(fragment);
+        });
+
+        state.set(block, { units, revealed: 0 });
+      });
+
+      const stamp = block => {
+        document.querySelectorAll(`[data-seal-for="${block.id}"]`).forEach(seal => seal.classList.add('stamped'));
+      };
+
+      const reveal = (block, amount) => {
+        const item = state.get(block);
+        if (!item || amount <= item.revealed) return;
+        const next = Math.min(amount, item.units.length);
+        if (item.revealed > 0) item.units[item.revealed - 1]?.classList.remove('cursor');
+        for (let i = item.revealed; i < next; i++) item.units[i].classList.add('revealed');
+        item.revealed = next;
+        if (next < item.units.length && next > 0) item.units[next - 1].classList.add('cursor');
+        if (next === item.units.length) {
+          item.units[next - 1]?.classList.remove('cursor');
+          stamp(block);
+        }
+      };
+
+      const lastBlock = blocks[blocks.length - 1];
+
+      const updateBlock = block => {
+        const item = state.get(block);
+        const rect = block.getBoundingClientRect();
+        const anchorY = window.innerHeight * .72;
+        const extra = Number(block.dataset.revealExtra || 120);
+        const distance = block === lastBlock
+          ? Math.max(80, rect.height * .3)
+          : rect.height + extra;
+        const progress = Math.max(0, Math.min(1, (anchorY - rect.top) / distance));
+        reveal(block, Math.ceil(progress * item.units.length));
+      };
+
+      let ticking = false;
+      const update = () => {
+        active.forEach(updateBlock);
+        ticking = false;
+      };
+
+      const requestUpdate = () => {
+        if (!ticking) {
+          ticking = true;
+          requestAnimationFrame(update);
+        }
+      };
+
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            active.add(entry.target);
+          } else {
+            active.delete(entry.target);
+            if (entry.boundingClientRect.bottom < 0) reveal(entry.target, state.get(entry.target).units.length);
+          }
+        });
+        requestUpdate();
+      }, { rootMargin: '25% 0px 35% 0px' });
+
+      blocks.forEach(block => observer.observe(block));
+      window.addEventListener('scroll', requestUpdate, { passive: true });
+      window.addEventListener('resize', requestUpdate, { passive: true });
+      requestUpdate();
+    })();
+  </script>
+</body>
+</html>
+
